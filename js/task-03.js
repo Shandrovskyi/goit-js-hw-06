@@ -13,27 +13,35 @@ const images = [
   },
 ];
 
+// ===================================OLD===========================
+
+// const galleryUl = document.querySelector(".gallery");
 
 
-const galleryUl = document.querySelector(".gallery");
+// images.forEach (image => {
 
-
-images.forEach (image => {
-
-  const galleryItem = `
-  <li class="gallery__item">
-    <img class="gallery__image" src="${image.url}" alt="${image.alt}" width = "320", heigth = "320">
-  </li>
-`;
+//   const galleryItem = `
+//   <li class="gallery__item" >
+//     <img class="gallery__image" src="${image.url}" alt="${image.alt}" width = "320", heigth = "320">
+//   </li>
+// `;
 
   
 
-galleryUl.insertAdjacentHTML("beforeend", galleryItem)
+// galleryUl.insertAdjacentHTML("beforeend", galleryItem)
 
 
 
+// });
+
+// ===================================NEW===========================
+
+
+
+const galleryUL = document.querySelector(".gallery");
+const galleryItems = images.map(image => {
+
+   return `<li><img class="gallery__image" src="${image.url}" alt="${image.alt}" width="320"></li>`;
 });
 
-
-
-
+galleryUL.insertAdjacentHTML("beforeend", galleryItems.join(""));
